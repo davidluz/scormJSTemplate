@@ -1,10 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Template Scorm</title>
+<meta charset="utf-8">
+<title>Object Title</title>
+<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script> 
+<script type="text/javascript" src="SCORM_API_wrapper.js"></script> 
 
-<script type="text/javascript" src="SCORM_API_wrapper.js"></script>
+ 
 <script type="text/javascript">
 
 var scorm = pipwerks.SCORM;  
@@ -22,7 +24,7 @@ function initCourse(){
    if(lmsConnected){
       var completionstatus = scorm.get("cmi.core.lesson_status");
       if(completionstatus === "completed" || completionstatus === "passed"){
-      handleError("Você terminou esta atividade. Não é necessário continuar.");
+      handleError("Você já fez essa atividade antes.\nNão é necessário continuar.");
       }
    }
 }
@@ -38,15 +40,19 @@ function setComplete(){
    }
 }
 
+$( document ).ready(function() {
+  console.log("funcionando!");
+});
 
 </script>
 
 </head>
 
-<body onload="initCourse();">
-Conteúdo da página 1
-
-<p>Clique para marcar esta página como visualizada:</p>
-<button onclick="setComplete();">Marcar</button>
+<body>
+<p>Teste pacote Scorm</p>
 </body>
+
 </html>
+
+
+
